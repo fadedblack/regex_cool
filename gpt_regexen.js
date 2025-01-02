@@ -51,3 +51,14 @@ Deno.test("Testing words with vowels", () => {
 Deno.test("Testing words with only consonents", () => {
   assertFalse(containsVowels.test("Ths strng hs n vwls."));
 });
+
+// Assignment 5: Matching Words That Start With a Consonant;
+const startWithConsonent = /\b[^aeiou\d\s][a-zA-Z]+\b/g;
+
+Deno.test("Testing Words That doesn't Start With a Consonant", () => {
+  assert(startWithConsonent.test("banana cherry dog"));
+});
+
+Deno.test("Testing Words that start with a consonant", () => {
+  assertFalse(startWithConsonent.test("apple banana 123 cherry dog"));
+});
