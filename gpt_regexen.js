@@ -1,4 +1,4 @@
-import { assertFalse, assert } from "jsr:@std/assert";
+import { assertFalse, assert, assertEquals } from "jsr:@std/assert";
 
 // Assignment 1: Matching Specific Words
 const specificWord = /\bcat\b/;
@@ -29,4 +29,11 @@ Deno.test("Testing digits in word", () => {
 
 Deno.test("Testing digits not in word", () => {
   assertFalse(digitsInWord.test("No digits here!"));
+});
+
+// Assignment 3: Matching All Digits in a String;
+const allDigitInWord = /[0-9]+/g;
+
+Deno.test("Testing digits in word", () => {
+  assertEquals("I have 2 cats and 3 dogs.".match(allDigitInWord), ["2", "3"]);
 });
