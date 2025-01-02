@@ -37,3 +37,17 @@ const allDigitInWord = /[0-9]+/g;
 Deno.test("Testing digits in word", () => {
   assertEquals("I have 2 cats and 3 dogs.".match(allDigitInWord), ["2", "3"]);
 });
+
+// Assignment 4: Matching Specific Characters
+const containsVowels = /[aeiou]/i;
+const containsConsonents = /[^aeiou\d\s_]/g;
+
+Deno.test("Testing words with vowels", () => {
+  assert(containsVowels.test("Hello World!"));
+  assert(containsConsonents.test("Ths strng hs n vwls."));
+  assert(containsConsonents.test("Ths 234 kkj. , ; "));
+});
+
+Deno.test("Testing words with only consonents", () => {
+  assertFalse(containsVowels.test("Ths strng hs n vwls."));
+});
